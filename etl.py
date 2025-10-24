@@ -51,11 +51,10 @@ for _, row in movies.iterrows():
             "box_office": None,
             "year": None
         })
-    time.sleep(0.3)  # avoid API rate limit
+    time.sleep(0.3) 
 
 movies_df = pd.DataFrame(movie_data)
 
-# --- Load ---
 movies_df.to_sql("movies", conn, if_exists="replace", index=False)
 ratings.to_sql("ratings", conn, if_exists="replace", index=False)
 
